@@ -1,7 +1,7 @@
 function initialize() {
   var seattle = new google.maps.LatLng(47.6097, -122.3331);
   var mapOptions = {
-    zoom : 9,
+    zoom : 12,
     center : seattle
   }
 
@@ -13,7 +13,8 @@ function initialize() {
     processStyles: true,
     singleInfoWindow : true,
     suppressInfoWindows: true,
-    afterParse : useTheData
+    afterParse : useTheData,
+    zoom: false
   });
   kml_parser.parse('/data.kml');
 
@@ -36,7 +37,6 @@ function initialize() {
       border : '1px solid black',
       textAlign : 'center',
       fontSize : '8pt',
-      width : '50px',
       backgroundColor: '#F8F8F8',
       padding: '4',
     },
@@ -61,13 +61,19 @@ function initialize() {
         text += ' (' + broad + ')';
       }
     }
+    var box = document.createElement('div');
+    box.textContent = text;
+    box.style.cssText = 'border: 1px solid #333333; ' +
+                        'margin: 0; ' +
+                        'padding: 4px;';
 
     google.maps.event.addListener(poly, 'mouseover', function(evt) {
       poly.setOptions({
         fillColor : '#99CCFF',
-        fillOpacity : 0.5
+        fillOpacity : 0.5,
+        padding: 0
       });
-      infobox_label.setContent(text);
+      infobox_label.setContent(box);
       infobox_label.setPosition(evt.latLng);
       infobox_label.open(map);
     });
