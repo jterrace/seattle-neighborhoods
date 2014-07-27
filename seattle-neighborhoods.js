@@ -16,7 +16,7 @@ function initialize() {
     afterParse : useTheData,
     zoom : false
   });
-  kml_parser.parse('/data.kml');
+  kml_parser.parse('data.kml');
 
   function useTheData(doc) {
     for ( var i = 0; i < doc[0].placemarks.length; i++) {
