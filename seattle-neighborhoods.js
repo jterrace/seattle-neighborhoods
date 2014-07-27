@@ -10,16 +10,16 @@ function initialize() {
 
   var kml_parser = new geoXML3.parser({
     map : map,
-    processStyles: true,
+    processStyles : true,
     singleInfoWindow : true,
-    suppressInfoWindows: true,
+    suppressInfoWindows : true,
     afterParse : useTheData,
-    zoom: false
+    zoom : false
   });
   kml_parser.parse('/data.kml');
 
   function useTheData(doc) {
-    for (var i = 0; i < doc[0].placemarks.length; i++) {
+    for ( var i = 0; i < doc[0].placemarks.length; i++) {
       var placemark = doc[0].placemarks[i];
       polygonMouseover(placemark);
     }
@@ -37,11 +37,11 @@ function initialize() {
       border : '1px solid black',
       textAlign : 'center',
       fontSize : '8pt',
-      backgroundColor: '#F8F8F8',
-      padding: '4',
+      backgroundColor : '#F8F8F8',
+      padding : '4',
     },
     disableAutoPan : true,
-    position: seattle,
+    position : seattle,
     closeBoxURL : "",
     isHidden : false,
     pane : "floatPane",
@@ -51,7 +51,7 @@ function initialize() {
   function polygonMouseover(placemark) {
     var poly = placemark.polygon;
     poly.setOptions({
-      strokeColor: '#3366CC'
+      strokeColor : '#3366CC'
     });
 
     var text = placemark.vars.val.S_HOOD;
@@ -63,15 +63,14 @@ function initialize() {
     }
     var box = document.createElement('div');
     box.textContent = text;
-    box.style.cssText = 'border: 1px solid #333333; ' +
-                        'margin: 0; ' +
-                        'padding: 4px;';
+    box.style.cssText = 'border: 1px solid #333333; ' + 'margin: 0; '
+        + 'padding: 4px;';
 
     google.maps.event.addListener(poly, 'mouseover', function(evt) {
       poly.setOptions({
         fillColor : '#99CCFF',
         fillOpacity : 0.5,
-        padding: 0
+        padding : 0
       });
       infobox_label.setContent(box);
       infobox_label.setPosition(evt.latLng);
