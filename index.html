@@ -4,19 +4,72 @@
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <title>Seattle Neighborhoods</title>
+
 <style>
-html,body,#map-canvas {
-	height: 100%;
-	margin: 0px;
-	padding: 0px
-}
+
+  html, body, div#map-canvas {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+  }
+
+  div#header {
+    margin: 0;
+    padding: 0 0 0 5px;
+    height: 30px;
+    text-align: left;
+    color: #e0e0e0;
+    background-color: #333333;
+    vertical-align: middle;
+  }
+
+  div#header a {
+    color: #e0e0e0;
+  }
+
+  div#header ul {
+    heigh: 30px;
+    padding: 0;
+    margin: 0;
+  }
+
+  div#header li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 25px 0 0;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  div#header li#twitter {
+    margin-right: 0;
+  }
+  .twitter-share-button[style] { vertical-align: text-bottom !important; }
+
 </style>
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script type="text/javascript" src="geoxml3.js"></script>
 <script type="text/javascript" src="infobox.js"></script>
 <script type="text/javascript" src="seattle-neighborhoods.js"></script>
 </head>
 <body>
+  <div id="header">
+    <ul>
+    <li>Seattle Neighborhoods</li>
+    <li>
+      <a href="https://github.com/jterrace/seattle-neighborhoods">GitHub</a>
+    </li>
+    <li id="twitter">
+      <a style="height:30px; vertical-align: top;" href="https://twitter.com/share" class="twitter-share-button" data-via="jterrace">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </li>
+    <li>
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fjterrace.github.io%2Fseattle-neighborhoods%2F&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;" scrolling="no" frameborder="0" style="vertical-align:middle; border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+    </li>
+    </ul>
+  </div>
   <div id="map-canvas"></div>
 </body>
 </html>
